@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+    <!-- Pricing Section -->
+<section id="pricing" class="py-20 bg-gray-900">
+    <div class="container mx-auto text-center mb-20">
+        <h4 class="text-orange-500 font-bold">Pricing Plan</h4>
+        <h1 class="text-3xl font-bold text-white">Choose Your Best Plan</h1>
+    </div>
+
+    <!-- Toggle Button for Bill Monthly / Annually -->
+    <div class="flex justify-center mb-10">
+        <label class="cursor-pointer relative inline-block w-20 h-8 rounded-full">
+            <input type="checkbox" id="toggleBtn" class="peer opacity-0 w-0 h-0">
+            <span class="absolute top-0 left-0 right-0 bottom-0 bg-blue-950 border border-solid border-gray-600 rounded-full"></span>
+        </label>
+        <span class="ml-4 text-white font-semibold">Bill Monthly</span>
+        <span class="ml-4 text-white font-semibold">Bill Annually</span>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+        <!-- Card 1 -->
+        <div class="card relative p-6 border-2 border-gray-600 rounded-xl">
+            <div class="front flex flex-col items-center justify-center">
+                <h3 class="text-2xl font-bold text-orange-500 mb-3">Basic Plan</h3>
+                <p class="text-xl" id="basic-plan-price">$10/month</p>
+            </div>
+            <div class="back flex flex-col items-center justify-center">
+                <h3 class="text-2xl font-bold text-white mb-3">Exclusive Plan</h3>
+                <p class="text-xl" id="exclusive-plan-price">$100/year</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card relative p-6 border-2 border-gray-600 rounded-xl">
+            <div class="front flex flex-col items-center justify-center">
+                <h3 class="text-2xl font-bold text-orange-500 mb-3">Pro Plan</h3>
+                <p class="text-xl" id="pro-plan-price">$20/month</p>
+            </div>
+            <div class="back flex flex-col items-center justify-center">
+                <h3 class="text-2xl font-bold text-white mb-3">Exclusive Plan</h3>
+                <p class="text-xl" id="pro-plan-annually">$200/year</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card relative p-6 border-2 border-gray-600 rounded-xl">
+            <div class="front flex flex-col items-center justify-center">
+                <h3 class="text-2xl font-bold text-orange-500 mb-3">Business Plan</h3>
+                <p class="text-xl" id="business-plan-price">$30/month</p>
+            </div>
+            <div class="back flex flex-col items-center justify-center">
+                <h3 class="text-2xl font-bold text-white mb-3">Exclusive Plan</h3>
+                <p class="text-xl" id="business-plan-annually">$300/year</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    // Pricing Plan Toggle
+    const toggleBtn = document.getElementById('toggleBtn');
+    
+    toggleBtn.addEventListener('change', function() {
+        // Toggle Monthly / Annually Plan Pricing
+        const monthlyPrices = document.querySelectorAll('[id$="-plan-price"]');
+        const annuallyPrices = document.querySelectorAll('[id$="-plan-annually"]');
+        
+        if (toggleBtn.checked) {
+            // Show Annually Pricing
+            monthlyPrices.forEach((el) => el.style.display = 'none');
+            annuallyPrices.forEach((el) => el.style.display = 'block');
+        } else {
+            // Show Monthly Pricing
+            monthlyPrices.forEach((el) => el.style.display = 'block');
+            annuallyPrices.forEach((el) => el.style.display = 'none');
+        }
+    });
+
+    // On page load, ensure default is Monthly
+    window.addEventListener('DOMContentLoaded', () => {
+        toggleBtn.checked = false;
+        document.querySelectorAll('[id$="-plan-annually"]').forEach(el => el.style.display = 'none');
+    });
+</script>
+
+</body>
+</html>
