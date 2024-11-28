@@ -5,6 +5,11 @@
 .btn {
     @apply bg-orange-500 px-9 py-3 rounded-md capitalize font-bold hover:opacity-80 ease-in duration-200;
 }
+
+.card_btn {
+    @apply w-full px-9 py-3 bg-blue-950 rounded-md capitalize font-bold hover:bg-orange-400 ease-in duration-200;
+}
+
 .title {
     @apply text-3xl md:text-4xl font-bold leading-snug;
 }
@@ -50,4 +55,18 @@
         opacity:  1;
     }
     
+}
+
+.card {
+    perspective: 1000px;
+}
+
+.front,
+.back {
+    backface-visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.front {
+    overflow: hidden;
 }
